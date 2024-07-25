@@ -3,7 +3,10 @@ extends Area2D
 @onready var timer = $Timer
 
 func _on_body_entered(body):
-	print("You died!")
+	# Notify the player that they have died
+	if OS.is_debug_build():
+		print("You died!")
+	
 	timer.start()
 
 
