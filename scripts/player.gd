@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+# Exists on collision layer 2
 
 const SPEED = 130.0
 const JUMP_VELOCITY = -300.0
