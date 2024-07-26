@@ -1,10 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://crtetq70crfex"]
+[gd_scene load_steps=13 format=3 uid="uid://crtetq70crfex"]
 
 [ext_resource type="PackedScene" uid="uid://dkyw54v7l2ub7" path="res://scenes/player.tscn" id="1_uvvy2"]
 [ext_resource type="Texture2D" uid="uid://4scdx87g7eae" path="res://assets/sprites/world_tileset.png" id="2_5ss1h"]
 [ext_resource type="PackedScene" uid="uid://btyrer0tvplqi" path="res://scenes/platform.tscn" id="3_xff0t"]
 [ext_resource type="PackedScene" uid="uid://cd63ej7cpfh82" path="res://scenes/coin.tscn" id="4_n3tja"]
 [ext_resource type="PackedScene" uid="uid://dgr5ap7nm33bw" path="res://scenes/killzone.tscn" id="5_s0xs0"]
+[ext_resource type="PackedScene" uid="uid://dvnl0ly06gyy6" path="res://scenes/slime.tscn" id="6_gbx6d"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ynqm2"]
 texture = ExtResource("2_5ss1h")
@@ -410,7 +411,7 @@ texture = ExtResource("2_5ss1h")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_ynqm2")
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_1wctg"]
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_hft7w"]
 
 [sub_resource type="Animation" id="Animation_oae0w"]
 length = 0.001
@@ -473,10 +474,9 @@ position_smoothing_enabled = true
 
 [node name="Killzone" parent="." instance=ExtResource("5_s0xs0")]
 position = Vector2(106, 156)
-collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone"]
-shape = SubResource("WorldBoundaryShape2D_1wctg")
+shape = SubResource("WorldBoundaryShape2D_hft7w")
 
 [node name="Coins" type="Node" parent="."]
 
@@ -520,3 +520,6 @@ libraries = {
 "": SubResource("AnimationLibrary_8goqn")
 }
 autoplay = "move"
+
+[node name="Slime" parent="." instance=ExtResource("6_gbx6d")]
+position = Vector2(561, 96)
