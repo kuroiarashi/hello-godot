@@ -4,6 +4,7 @@ extends Area2D
 # Detects collisions on layer 2 (player)
 
 @onready var game_manager = %GameManager
+@onready var animation_player = $AnimationPlayer
 
 
 func _on_body_entered(body):
@@ -11,4 +12,4 @@ func _on_body_entered(body):
 	game_manager.add_point()
 	
 	# Remove the coin from the scene when it's collected by the player
-	queue_free()
+	animation_player.play("pickup")
