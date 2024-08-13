@@ -1,11 +1,11 @@
 extends Area2D
 
+@onready var game_manager = $"/root/Game/GameManager"
 @onready var timer = $Timer
 
 func _on_body_entered(body):
 	# Notify the player that they have died
-	if OS.is_debug_build():
-		print("You died!")
+	game_manager.set_player_dead()
 	
 	# Slow time
 	Engine.time_scale = 0.5

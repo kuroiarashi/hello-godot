@@ -543,6 +543,9 @@ autoplay = "move"
 [node name="Slime" parent="." instance=ExtResource("6_gbx6d")]
 position = Vector2(561, 96)
 
+[node name="Slime2" parent="." instance=ExtResource("6_gbx6d")]
+position = Vector2(156, 16)
+
 [node name="Labels" type="Node" parent="."]
 
 [node name="Label" type="Label" parent="Labels"]

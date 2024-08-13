@@ -1,6 +1,8 @@
 extends Node
 
 var score : int = 0
+var player_dead: bool = false
+
 @onready var score_label = $ScoreLabel
 
 
@@ -20,3 +22,12 @@ func get_coin_label() -> String:
 		coin_label = str(score) + " coins"
 	
 	return coin_label
+
+func get_player_dead() -> bool:
+	return player_dead
+
+func set_player_dead():
+	player_dead = true
+	if OS.is_debug_build():
+		print("You died!")
+	

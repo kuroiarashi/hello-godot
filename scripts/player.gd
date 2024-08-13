@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 # Exists on collision layer 2
 
+@onready var game_manager = %GameManager
+
 const SPEED : float = 130.0
 const JUMP_VELOCITY : float = -300.0
 
@@ -29,14 +31,17 @@ func _physics_process(delta):
 		animated_sprite.flip_h = true
 	
 	# Play animations
-	if is_on_floor():
-		if direction == 0:
-			animated_sprite.play("idle")
-		else:
-			animated_sprite.play("run")
+	if game_manager.get_player_dead() == true:
+		animated_sprite.play("death")
 	else:
-		# Player is in the air
-		animated_sprite.play("jump")
+		if is_on_floor():
+			if direction == 0:
+				animated_sprite.play("idle")
+			else:
+				animated_sprite.play("run")
+		else:
+			# Player is in the air
+			animated_sprite.play("jump")
 	
 	# Apply movement
 	if direction:
